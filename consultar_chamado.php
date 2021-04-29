@@ -5,7 +5,7 @@
   $chamados = [];
 
   //abrir arquivo.hd
-  $arquivo = fopen('arquivo.hd','r'); //r para ler o arquivo
+  $arquivo = fopen('../../app_help_desk/arquivo.hd','r'); //r para ler o arquivo
 
   // enquanto houver registros (linhas) a serem recuperados
   while(!feof($arquivo)) { //testa pelo fim de um arquivo - retorna true se achar o fim

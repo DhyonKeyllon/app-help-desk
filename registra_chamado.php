@@ -15,7 +15,7 @@
             // 'a' -> Abre somente para escrita; coloca o ponteiro do arquivo no final do arquivo. Se o arquivo não existir, tenta criá-lo.
 
     // abrir um arquivo para armazenar o texto 
-    $arquivo = fopen('arquivo.hd','a');
+    $arquivo = fopen('../../app_help_desk/arquivo.hd','a');
 
     // texto que vai ser armazenado dentro do nosso $arquivo 
     $texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL; // EOL armazena o caractere de quebra de linha de acordo com o SO que o php ta rodando
