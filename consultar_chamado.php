@@ -60,6 +60,16 @@
               <?php
                 $chamado_dados = explode("#", $chamado); /*retorna um array e o divisor é o primeiro parametro, que a partir dele ele cria um novo array */
 
+                if($_SESSION['perfil_id'] == 2) { // se a sessao for de usuario a gente vai entrar no if que pula a exibicao dos chamados criados por outros id
+                  //só vamos exibir o chamado que foi criado pelo usuario comparando o id da sessao e o id no registro, se for diferente, automaticamente ele pula para o proximo foreach assim, nem registrando o div=card contendo as informações
+                  if($_SESSION['id'] != $chamado_dados[0]) {
+                    continue;
+                  }
+                  
+                }
+
+                // só mostra todos, se a session id é == 1 
+
                 // verificar se as indices do array é menos que 3, se for, é porque chegou ao final dos dados, assim, não imprimindo na tela
                 if(count($chamado_dados) < 3) {
                   continue;
@@ -67,9 +77,9 @@
               ?>
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?=$chamado_dados[0]?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1]?></h6>
-                  <p class="card-text"><?=$chamado_dados[2]?></p>
+                  <h5 class="card-title"><?=$chamado_dados[1]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6>
+                  <p class="card-text"><?=$chamado_dados[3]?></p>
 
                 </div>
               </div>

@@ -1,8 +1,7 @@
 <?php 
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    session_start();
+
 
     // tratar o texto para que não haja duplicidade de #, ja que vamos usar para separar no encapsulamento de dados
     $titulo = str_replace('#','-',$_POST['titulo']);
@@ -19,7 +18,7 @@
     $arquivo = fopen('arquivo.hd','a');
 
     // texto que vai ser armazenado dentro do nosso $arquivo 
-    $texto = $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL; // EOL armazena o caractere de quebra de linha de acordo com o SO que o php ta rodando
+    $texto = $_SESSION['id'] . '#' . $titulo . '#' . $categoria . '#' . $descricao . PHP_EOL; // EOL armazena o caractere de quebra de linha de acordo com o SO que o php ta rodando
     
     fwrite($arquivo, $texto); // escreve texto dentro do arquivo fwrite(nomeaqruivo, oQueVaiEsvreverNoArquivo)
 
