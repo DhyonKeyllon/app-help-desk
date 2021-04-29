@@ -10,7 +10,22 @@
   // enquanto houver registros (linhas) a serem recuperados
   while(!feof($arquivo)) { //testa pelo fim de um arquivo - retorna true se achar o fim
     $registro = fgets($arquivo);// recupera o que estiver na linha, com base no cursor do propio php 
-    $chamados[] = $registro;
+
+    $registro_detalhe = explode("#", $registro);
+
+    //(perfil id = 2) só vamos exibir o chamado, se ele foi criado pelo usuário
+    if($_SESSION['perfil_id'] == 2) {
+      //se usuário autenticado não for o usuário de abertura do chamado então não faz nada
+      if ($_SESSION['id'] != $registro_detalhe[0]) {
+        continue;// nao faz nada
+      } else {
+        //atribui registro em uma nova indice
+        $chamados[] = $registro;
+      }
+    } else {
+      //atribui registro em uma nova indice
+      $chamados[] = $registro;
+    }
   }
 
   //fechar o arquivo aberto para que o php nao leia mais
@@ -59,16 +74,6 @@
               <? foreach($chamados as $chamado) { ?>
               <?php
                 $chamado_dados = explode("#", $chamado); /*retorna um array e o divisor é o primeiro parametro, que a partir dele ele cria um novo array */
-
-                if($_SESSION['perfil_id'] == 2) { // se a sessao for de usuario a gente vai entrar no if que pula a exibicao dos chamados criados por outros id
-                  //só vamos exibir o chamado que foi criado pelo usuario comparando o id da sessao e o id no registro, se for diferente, automaticamente ele pula para o proximo foreach assim, nem registrando o div=card contendo as informações
-                  if($_SESSION['id'] != $chamado_dados[0]) {
-                    continue;
-                  }
-                  
-                }
-
-                // só mostra todos, se a session id é == 1 
 
                 // verificar se as indices do array é menos que 3, se for, é porque chegou ao final dos dados, assim, não imprimindo na tela
                 if(count($chamado_dados) < 3) {
