@@ -32,4 +32,4 @@ Sistema que pode abrir chamados e consulta-los. Criado controle de acesso onde, 
 
 ## Sobre
 
-Projeto idealizado e desenvolvido totalmente para fins acadêmicos.
+Projeto desenvolvido totalmente para fins acadêmicos.
