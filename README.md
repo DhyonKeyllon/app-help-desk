@@ -6,7 +6,7 @@
   </a>
 </p>
 
-<!-- ABOUT THE PROJECT -->
+<!-- Telas -->
 ## Sobre o projeto
 ### Tela login
 <p align="center">
