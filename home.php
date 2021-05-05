@@ -41,8 +41,8 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <a href="img/abrir_chamado.php">
-                    <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="abrir_chamado.php">
+                    <img src="img/formulario_abrir_chamado.png" width="70" height="70">
                   </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
